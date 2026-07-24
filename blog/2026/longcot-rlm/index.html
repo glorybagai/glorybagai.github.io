@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Head -->
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <!-- Metadata, OpenGraph and Schema.org -->
+
+
+
+
+<!-- Standard metadata -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>
+  
+  
+    
+      A Mini Exercise on the Mismanaged Geniuses Hypothesis (RLMs on LongCoT) | Alex L. Zhang
+    
+  
+</title>
+<meta name="author" content="Alex L. Zhang">
+<meta name="description" content="We study an example of the Mismanaged Geniuses Hypothesis at play on the LongCoT benchmark">
+
+  <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website">
+
+
+
+
+
+
+  <!-- OpenGraph -->
+  <meta property="og:site_name" content="Alex L. Zhang">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Alex L. Zhang | A Mini Exercise on the Mismanaged Geniuses Hypothesis (RLMs on LongCoT)">
+  <meta property="og:url" content="https://alexzhang13.github.io/blog/2026/longcot-rlm/">
+  <meta property="og:description" content="We study an example of the Mismanaged Geniuses Hypothesis at play on the LongCoT benchmark">
+  
+    <meta property="og:image" content="https://alexzhang13.github.io/assets/img/preview/default.png">
+  
+  <meta property="og:locale" content="en">
+
+  <!-- Twitter card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="A Mini Exercise on the Mismanaged Geniuses Hypothesis (RLMs on LongCoT)">
+  <meta name="twitter:description" content="We study an example of the Mismanaged Geniuses Hypothesis at play on the LongCoT benchmark">
+  
+    <meta name="twitter:image" content="https://alexzhang13.github.io/assets/img/preview/default.png">
+  
+  
+    <meta name="twitter:site" content="@a1zhang">
+    <meta name="twitter:creator" content="@a1zhang">
+  
+
+
+
+  <!-- Schema.org -->
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  <script type="application/ld+json">
+    {
+        "author":
+        {
+            "@type": "Person",
+            "name": "Alex L. Zhang"
+        },
+        "url": "https://alexzhang13.github.io/blog/2026/longcot-rlm/",
+        "@type": "BlogPosting",
+        "description": "We study an example of the Mismanaged Geniuses Hypothesis at play on the LongCoT benchmark",
+        "headline": "A Mini Exercise on the Mismanaged Geniuses Hypothesis (RLMs on LongCoT)",
+        
+        "sameAs": ["https://scholar.google.com/citations?user=rtCr0q4AAAAJ", "https://github.com/alexzhang13", "https://www.linkedin.com/in/alexzhang13", "https://twitter.com/a1zhang"],
+        
+        "name": "Alex L. Zhang",
+        "@context": "https://schema.org"
+    }
+  </script>
+
+
+
+<!-- Bootstrap & MDB -->
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css?a4b3f509e79c54a512b890d73235ef04">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous">
+
+<!-- Bootstrap Table -->
+
+
+<!-- Fonts & Icons -->
+<link defer rel="stylesheet" href="/assets/css/academicons.min.css?f0b7046b84e425c55f3463ac249818f5">
+<link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap">
+
+<!-- Code Syntax Highlighting -->
+<link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light">
+
+
+
+<!-- Styles -->
+
+<!-- pseudocode -->
+
+
+
+  <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%AB%A1&lt;/text&gt;&lt;/svg&gt;">
+
+<link rel="stylesheet" href="/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e">
+<link rel="canonical" href="https://alexzhang13.github.io/blog/2026/longcot-rlm/">
+
+<!-- Dark Mode -->
+<script src="/assets/js/theme.js?9a0c749ec5240d9cda97bc72359a72c0"></script>
+
+
+<!-- GeoJSON support via Leaflet -->
+
+
+<!-- diff2html -->
+
+
+
+
+
+
+  </head>
+
+  <!-- Body -->
+  <body class="fixed-top-nav sticky-bottom-footer">
+    <!-- Header -->
+    <header>
+  <!-- Nav Bar -->
+  <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation">
+    <div class="container">
+      
+        <a class="navbar-brand title font-weight-lighter" href="/">
+          
+            
+              <span class="font-weight-bold">Alex</span>
+            
+            L.
+            Zhang
+          
+        </a>
+      
+      <!-- Navbar Toggle -->
+      <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar top-bar"></span>
+        <span class="icon-bar middle-bar"></span>
+        <span class="icon-bar bottom-bar"></span>
+      </button>
+
+      <div class="collapse navbar-collapse text-right" id="navbarNav">
+        <ul class="navbar-nav ml-auto flex-nowrap">
+          
+
+          <!-- About -->
+          <li class="nav-item ">
+            <a class="nav-link" href="/">about
+              
+            </a>
+          </li>
+
+          <!-- Other pages -->
+          
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              
+                
+                <li class="nav-item active">
+                  
+                  <a class="nav-link" href="/blog/">blog
+                    
+                  </a>
+                </li>
+              
+            
+          
+            
+          
+            
+              
+                
+                <li class="nav-item ">
+                  
+                  <a class="nav-link" href="/publications/">publications and pre-prints
+                    
+                  </a>
+                </li>
+              
+            
+          
+            
+              
+                
+                <li class="nav-item ">
+                  
+                  <a class="nav-link" href="/projects/">projects
+                    
+                  </a>
+                </li>
+              
+            
+          
+            
+          
+            
+              
+                
+                <li class="nav-item ">
+                  
+                  <a class="nav-link" href="/academics/">academics
+                    
+                  </a>
+                </li>
+              
+            
+          
+            
+          
+          
+            <!-- Search -->
+            <li class="nav-item">
+              <button id="search-toggle" title="Search" onclick="openSearchModal()">
+                <span class="nav-link">ctrl k <i class="ti ti-search"></i></span>
+              </button>
+            </li>
+          
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+    <!-- Scrolling Progress Bar -->
+    <progress id="progress" value="0">
+      <div class="progress-container">
+        <span class="progress-bar"></span>
+      </div>
+    </progress>
+  
+</header>
+
+
+    <!-- Content -->
+    <div class="container mt-5" role="main">
+      
+        
+
+
+
+
+
+
+
+<div class="post">
+  <header class="post-header">
+    <h1 class="post-title">A Mini Exercise on the Mismanaged Geniuses Hypothesis (RLMs on LongCoT)</h1>
+    <p class="post-meta">
+      Created in April 26, 2026
+      
+      
+      
+    </p>
+    <p class="post-tags">
+      
+        <a href="/blog/2026"> <i class="fa-solid fa-calendar fa-sm"></i> 2026 </a>
+      
+      
+          ·  
+        
+          
+            <a href="/blog/tag/mismanaged"> <i class="fa-solid fa-hashtag fa-sm"></i> mismanaged</a>
+          
+          
+             
+          
+        
+          
+            <a href="/blog/tag/longcot"> <i class="fa-solid fa-hashtag fa-sm"></i> longcot</a>
+          
+          
+        
+      
+
+      
+    </p>
+  </header>
+
+  <article class="post-content">
+    
+    <div id="markdown-content">
+      <p>Alex Zhang, Omar Khattab</p>
+
+<p>I believe it’s worth discussing an example of the <a href="https://alexzhang13.github.io/blog/2026/mgh/">Mismanaged Geniuses Hypothesis</a> at play: <strong>we underestimate how good language models actually are, and they are inhibited by how we use them.</strong></p>
+
+<p>These days, I feel it’s pretty common to wake up and see a new benchmark come out which shows that “we’re not there yet”. The sense I get from these releases is that, despite perhaps the authors’ best interests, <em>it often leads to the feeling that “the latest frontier model cannot solve a certain category of task”</em>.</p>
+
+<p>I often wonder whether this is really the conclusion we should be drawing nowadays. I want to provide a small case study on <a href="https://arxiv.org/abs/2604.14140" rel="external nofollow noopener" target="_blank"><strong>LongCoT (Motwani et al. 2026)</strong></a>, which is a recent viral benchmark where frontier models fall somewhat short (&lt;10% overall). The thesis is fairly simple: LMs cannot solve complicated compositional reasoning tasks consisting of sub-problems they are able to solve in isolation.</p>
+
+<figure>
+<center>
+    <img src="/assets/img/mgh_longcot/longcot_fig1.png" style="width:100%; margin-bottom: 10px" alt="teaser">
+</center>
+    <figcaption style="width:100%; margin:auto"><em>Taken from <strong>Figure 2</strong> of the LongCoT paper. A LongCoT / LongCoT-mini task consists of a graph (often DAG) where each node is a sub-problem. The sub-problem relies on answers to incoming nodes, and these answers are needed to solve outgoing nodes.</em></figcaption>
+</figure>
+
+<p><br>
+<!-- Add more spacing if needed: <br> --></p>
+
+<h3 id="prelim-frontier-models-and-rlms-on-longcot-mini">Prelim: Frontier Models and RLMs on LongCoT-mini</h3>
+
+<p>I’ll restrict this post to LongCoT-mini, as the problems are structurally the same as the larger benchmark, but (1) there are fewer problems (500 vs. 2500), (2) each problem is easier, but the paper shows current models can’t solve these problems either. I also plan to reserve the full benchmark results for larger, non-blog releases.</p>
+
+<p>In the paper, they report GPT-5.2 as the strongest model, solving <strong>38.7%</strong> of LongCoT-mini.</p>
+
+<figure>
+<center>
+    <img src="/assets/img/mgh_longcot/longcot_fig2.png" style="width:85%; margin-bottom: 10px" alt="longcot figure 9 results">
+</center>
+    <figcaption style="width:100%; margin:auto"><em>The LongCoT paper reports scores for frontier models on LongCoT-mini in <strong>Figure 9</strong>. The performance is generally low across the board, with the highest scoring model (GPT-5.2) solving 38.7% of tasks.</em></figcaption>
+</figure>
+
+<p>For a reasoning benchmark this is quite significant, considering it is pretty hard to craft problems that LMs have not loosely seen already. Furthermore, despite my intuition that an RLM would absolutely ace this benchmark through composition, it turned out that in most cases the RLM actually reportedly performed <em>worse</em> than the base model itself. The general conclusion, also by the authors, is that RLMs need to be trained for this style of graph-based compositional reasoning.</p>
+
+<p>I wasn’t convinced, but <a href="https://raw.works/longcot-a-benchmark-worthy-of-a-rlms-attention/" rel="external nofollow noopener" target="_blank">Raymond Weitekamp</a> beat me to the punch; a day after the benchmark’s release, he ran <code class="language-plaintext highlighter-rouge">DSPy.RLM</code> on Claude Sonnet 4.5 on LongCoT-mini and found the performance jumped from <strong>13.0% —&gt; 45.4%</strong>, a significant jump in performance through possibly a better tuned implementation of the RLM. But what especially stood out to me was 6.3% on <code class="language-plaintext highlighter-rouge">MATH</code> and 4% on <code class="language-plaintext highlighter-rouge">CS</code>. This is a rather unsatisfactory result, as the authors already pointed out that the RLM’s ability to use a coding environment inflates its performance on <code class="language-plaintext highlighter-rouge">CHESS</code> and <code class="language-plaintext highlighter-rouge">LOGIC</code> through solvers. <em>So perhaps the conclusion is that RLMs just cannot solve LongCoT tasks (?)</em></p>
+
+<h3 id="general-method-cannot-do-xyz-is-a-very-strong-statement">“General method cannot do XYZ” is a VERY strong statement.</h3>
+
+<p>All of what I described earlier is summarized in this blurb in Appendix C of the LongCoT paper:</p>
+<blockquote>
+  <p><strong>Appendix C</strong>. These issues illustrate that context decomposition is different from task decomposition: RLMs work well on problems with sequential or retrievable structure, but as soon as reasoning requires tracking graph-structured dependencies, as most LongCoT problems do, context-folding becomes much harder.</p>
+</blockquote>
+
+<p>But this is kind of an odd conclusion to me. Nothing about the design of an RLM makes tracking graph dependencies harder than tracking map-reduce style dependencies (they can all be easily described in code). And sure, maybe the takeaway is that training an RLM will solve these issues, but can <strong>GPT-5.2 with an RLM really not perform programmatic task decomposition?</strong></p>
+
+<p>I decided to compare against GPT-5.2, as it was the strongest performing model reported on the benchmark. And it turned out, similar to Raymond’s results, despite stronger overall performance relative to GPT-5.2 (38.7% —&gt; 50.6%), RLM(GPT-5.2) struggled on the <code class="language-plaintext highlighter-rouge">MATH</code> and <code class="language-plaintext highlighter-rouge">CS</code> splits!</p>
+
+<div class="table-responsive">
+
+  <table class="table table-sm table-striped table-bordered">
+    <thead>
+      <tr>
+        <th><strong>Method</strong></th>
+        <th><strong>Total</strong></th>
+        <th><strong>MATH</strong></th>
+        <th><strong>CHEM</strong></th>
+        <th><strong>CS</strong></th>
+        <th><strong>LOGIC</strong></th>
+        <th><strong>CHESS</strong></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Raymond Weitekamp’s DSPy.RLM + Claude Sonnet 4.5</td>
+        <td>45.4%</td>
+        <td>6.3%</td>
+        <td>31.0%</td>
+        <td>4.0%</td>
+        <td><strong>96.2%</strong></td>
+        <td>85.0%</td>
+      </tr>
+      <tr>
+        <td>RLM(GPT-5.2)</td>
+        <td><strong>50.6%</strong></td>
+        <td>5.6%</td>
+        <td><strong>50.0%</strong></td>
+        <td>11.0%</td>
+        <td>86.7%</td>
+        <td><strong>93.0%</strong></td>
+      </tr>
+      <tr>
+        <td>GPT-5.2 (base)</td>
+        <td>38.7%</td>
+        <td><strong>26.0%</strong></td>
+        <td>37.0%</td>
+        <td><strong>40.4%</strong></td>
+        <td>53.6%</td>
+        <td>36.6%</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<p>Now against <a href="https://x.com/xeophon/status/2045415117630717998" rel="external nofollow noopener" target="_blank">@Xeophon’s best wishes</a>, I started manually examining RLM traces. It turned out in the majority of cases that the RLM was timing out, as it would attempt to solve a <code class="language-plaintext highlighter-rouge">MATH</code> or <code class="language-plaintext highlighter-rouge">CS</code> node using a pure brute-force approach, crashing the REPL and failing the trajectory (oops, perfectly guardrail-able with a better RLM implementation). Furthermore, the model would sometimes realize it could decompose the graph into sub-problems and launch sub-agents over these sub-problems, but would rarely check whether the sub-agent actually got the sub-problem correct. These all seemed like silly decision-making issues on the part of the LM, which seemingly had more to do with how we chose to prompt the RLM, rather than its inability to solve the task.</p>
+
+<p>So overnight, I asked Claude Code to look at the trajectories, write tips for the RLM to not make mistakes, and restart the run on LongCoT-mini. When I woke up in the morning, the updated results were as follows:</p>
+
+<figure>
+<center>
+    <img src="/assets/img/mgh_longcot/plot.png" style="width:85%; margin-bottom: 10px" alt="updated longcot-mini results plot">
+</center>
+</figure>
+
+<p>Not only did it greatly increase performance across the board, the overall performance jumped from <strong>38.7% —&gt; 65.6%</strong>. I also tracked partial rewards (i.e. many tasks ask for multiple answers which all need to be correct, and the model sometimes gets one wrong) which jumped the performance to well above <strong>70%</strong>! I’m pretty confident we could further push these scores, but I think the point I’m trying to make is well illustrated from this jump alone.</p>
+
+<p><strong>Remark.</strong> I also asked it to write a similar set of tips for the LM to use as an ablation of the value of the RLM mechanism itself. I actually iterated on these prompts more than the RLM prompt, but generally just found worse performance versus the base prompt. Unfortunately, even though the LM becomes aware of the right decomposition, it is difficult for a pure reasoning language model to track and perform these decompositions through chain-of-thought.</p>
+
+<p><strong>Remark 2.</strong> The prompt is found in the trajectories repository (see Resources at the bottom), and is the same across all tasks. It describes the graph structure of LongCoT problems, an example of how to solve a fake problem, and tips for not brute-forcing problems. It illustrates that RLMs performing the correct decompositions are powerful, and ideally in the long run we want them to come up with these strategies on the fly from minimal prompting.</p>
+
+<h3 id="what-does-this-mean-for-lms-rlms-and-rlm-training">What does this mean for LMs, RLMs, and RLM training</h3>
+
+<p>There are some interesting takeaways from this mini experiment beyond the Mismanaged Geniuses Hypothesis that relate to training, and more specifically post-training on RLMs. We already knew that steering models with better prompts could yield wildly different results (my advisor has a whole collection of papers on this topic), but I think this effect is exaggerated with systems like RLMs that equip models with significantly more expressive capabilities.</p>
+
+<p>While we would like to naively bootstrap out RLM-like behavior from pure RL, it is becoming somewhat apparent that maybe we’ll have to steer models a bit through prompting while generating trajectories, then gradually remove these priors. Luckily, from this mini experiment it seems frontier models themselves are perfectly capable of doing this: the prompt generated for RLM(GPT-5.2) was made by Claude Code itself. In some sense, the LM itself can recognize the decomposition an RLM needs to do!</p>
+
+<p>In general, our intuition about how an RLM <em>should</em> behave is likely sub-optimal, but it turns out to be better than what the frontier models choose to do. I’d like to get to the point where, like a <a href="https://en.wikipedia.org/wiki/AlphaGo_versus_Lee_Sedol" rel="external nofollow noopener" target="_blank">Move 37</a> scenario, the RLM makes decisions that we do not understand, but ultimately are significantly better than the decompositions we come up with. For now though, it seems a valid strategy in the short term to avoid sparse rewards and steer.</p>
+
+<p><strong>What was the point of this exercise?</strong> I don’t have a great way to conclude the writing, so I’ll just be straightforward. Based on the MGH, I think our understanding of model capabilities is still quite poor. As someone who spent a lot of time building benchmarks, I have felt it extremely hard to curate novel problems that modern models truly cannot solve. Even without additional training, we can squeeze out a significant improvement in performance in harnesses like RLMs just by nudging it on the structure of a problem. It really is an exciting time, so let’s please be responsible!</p>
+
+<h3 id="resources">Resources</h3>
+
+<ul>
+  <li>Trajectories and visualizer for the main experiment above: <a href="https://github.com/alexzhang13/longcot-mini-rlm-results" rel="external nofollow noopener" target="_blank">https://github.com/alexzhang13/longcot-mini-rlm-results</a>
+</li>
+  <li>LongCoT Dataset: <a href="https://huggingface.co/datasets/LongHorizonReasoning/longcot" rel="external nofollow noopener" target="_blank">https://huggingface.co/datasets/LongHorizonReasoning/longcot</a>
+</li>
+  <li>LongCoT Repository: <a href="https://github.com/LongHorizonReasoning/longcot" rel="external nofollow noopener" target="_blank">https://github.com/LongHorizonReasoning/longcot</a>
+</li>
+  <li>LongCoT paper: <a href="https://arxiv.org/abs/2604.14140" rel="external nofollow noopener" target="_blank">https://arxiv.org/abs/2604.14140</a>
+</li>
+  <li>Raymond Weitekamp’s blog on RLMs: <a href="https://raw.works/longcot-a-benchmark-worthy-of-a-rlms-attention/" rel="external nofollow noopener" target="_blank">https://raw.works/longcot-a-benchmark-worthy-of-a-rlms-attention/</a>
+</li>
+  <li>Recursive Language Models (RLM) paper: <a href="https://arxiv.org/abs/2512.24601" rel="external nofollow noopener" target="_blank">https://arxiv.org/abs/2512.24601</a>
+</li>
+  <li>My RLM implementation: <a href="https://github.com/alexzhang13/rlm" rel="external nofollow noopener" target="_blank">https://github.com/alexzhang13/rlm</a>
+</li>
+  <li>Prime Intellect’s RLM implementation in verifiers: <a href="https://github.com/PrimeIntellect-ai/verifiers/blob/main/verifiers/envs/experimental/rlm_env.py" rel="external nofollow noopener" target="_blank">https://github.com/PrimeIntellect-ai/verifiers/blob/main/verifiers/envs/experimental/rlm_env.py</a>
+</li>
+</ul>
+
+    </div>
+  </article>
+
+  
+
+  
+
+  
+    
+  
+
+  
+  
+</div>
+
+      
+    </div>
+
+    <!-- Footer -->
+    
+  <footer class="sticky-bottom mt-5" role="contentinfo">
+    
+
+    <div class="container">
+      © Copyright 2026
+      Alex
+      L.
+      Zhang. 
+      
+      
+    </div>
+  </footer>
+
+
+
+    <!-- JavaScripts -->
+    <!-- jQuery -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- Bootsrap & MDB scripts -->
+<script src="/assets/js/bootstrap.bundle.min.js"></script>
+<!-- <script src="/assets/js/mdb.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script>
+
+    
+  <!-- Masonry & imagesLoaded -->
+  <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script>
+  <script defer src="/assets/js/masonry.js" type="text/javascript"></script>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  <!-- Medium Zoom JS -->
+  <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script>
+  <script defer src="/assets/js/zoom.js?85ddb88934d28b74e78031fd54cf8308"></script>
+
+
+
+<!-- Bootstrap Table -->
+
+
+<!-- Load Common JS -->
+<script src="/assets/js/no_defer.js?2781658a0a2b13ed609542042a859126"></script>
+<script defer src="/assets/js/common.js?e0514a05c5c95ac1a93a8dfd5249b92e"></script>
+<script defer src="/assets/js/copy_code.js?12775fdf7f95e901d7119054556e495f" type="text/javascript"></script>
+
+<!-- Jupyter Open External Links New Tab -->
+<script defer src="/assets/js/jupyter_new_tab.js?d9f17b6adc2311cbabd747f4538bb15f"></script>
+
+
+
+    
+  <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
+
+
+  <script async src="https://badge.dimensions.ai/badge.js"></script>
+
+
+    
+  
+    <!-- MathJax -->
+    <script type="text/javascript">
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+        },
+      };
+    </script>
+    <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script>
+    <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script>
+  
+
+
+    
+
+    
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K2L3VESDMP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      window.dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-K2L3VESDMP');
+  </script>
+
+
+
+
+    
+  <!-- Scrolling Progress Bar -->
+  <script type="text/javascript">
+    /*
+     * This JavaScript code has been adapted from the article
+     * https://css-tricks.com/reading-position-indicator/ authored by Pankaj Parashar,
+     * published on the website https://css-tricks.com on the 7th of May, 2014.
+     * Couple of changes were made to the original code to make it compatible
+     * with the `al-foio` theme.
+     */
+    const progressBar = $('#progress');
+    /*
+     * We set up the bar after all elements are done loading.
+     * In some cases, if the images in the page are larger than the intended
+     * size they'll have on the page, they'll be resized via CSS to accomodate
+     * the desired size. This mistake, however, breaks the computations as the
+     * scroll size is computed as soon as the elements finish loading.
+     * To account for this, a minimal delay was introduced before computing the
+     * values.
+     */
+    window.onload = function () {
+      setTimeout(progressBarSetup, 50);
+    };
+    /*
+     * We set up the bar according to the browser.
+     * If the browser supports the progress element we use that.
+     * Otherwise, we resize the bar thru CSS styling
+     */
+    function progressBarSetup() {
+      if ('max' in document.createElement('progress')) {
+        initializeProgressElement();
+        $(document).on('scroll', function () {
+          progressBar.attr({ value: getCurrentScrollPosition() });
+        });
+        $(window).on('resize', initializeProgressElement);
+      } else {
+        resizeProgressBar();
+        $(document).on('scroll', resizeProgressBar);
+        $(window).on('resize', resizeProgressBar);
+      }
+    }
+    /*
+     * The vertical scroll position is the same as the number of pixels that
+     * are hidden from view above the scrollable area. Thus, a value > 0 is
+     * how much the user has scrolled from the top
+     */
+    function getCurrentScrollPosition() {
+      return $(window).scrollTop();
+    }
+
+    function initializeProgressElement() {
+      let navbarHeight = $('#navbar').outerHeight(true);
+      $('body').css({ 'padding-top': navbarHeight });
+      $('progress-container').css({ 'padding-top': navbarHeight });
+      progressBar.css({ top: navbarHeight });
+      progressBar.attr({
+        max: getDistanceToScroll(),
+        value: getCurrentScrollPosition(),
+      });
+    }
+    /*
+     * The offset between the html document height and the browser viewport
+     * height will be greater than zero if vertical scroll is possible.
+     * This is the distance the user can scroll
+     */
+    function getDistanceToScroll() {
+      return $(document).height() - $(window).height();
+    }
+
+    function resizeProgressBar() {
+      progressBar.css({ width: getWidthPercentage() + '%' });
+    }
+    // The scroll ratio equals the percentage to resize the bar
+    function getWidthPercentage() {
+      return (getCurrentScrollPosition() / getDistanceToScroll()) * 100;
+    }
+  </script>
+
+
+    
+
+    
+
+    
+
+    
+  <script src="/assets/js/vanilla-back-to-top.min.js?f40d453793ff4f64e238e420181a1d17"></script>
+  <script>
+    addBackToTop();
+  </script>
+
+
+    
+  <script type="module" src="/assets/js/search/ninja-keys.min.js?601a2d3465e2a52bec38b600518d5f70"></script>
+  <ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys>
+  <script>
+    let searchTheme = determineComputedTheme();
+    const ninjaKeys = document.querySelector('ninja-keys');
+
+    if (searchTheme === 'dark') {
+      ninjaKeys.classList.add('dark');
+    } else {
+      ninjaKeys.classList.remove('dark');
+    }
+
+    const openSearchModal = () => {
+      // collapse navbarNav if expanded on mobile
+      const $navbarNav = $('#navbarNav');
+      if ($navbarNav.hasClass('show')) {
+        $navbarNav.collapse('hide');
+      }
+      ninjaKeys.open();
+    };
+  </script>
+  <script>
+    // get the ninja-keys element
+    const ninja = document.querySelector('ninja-keys');
+
+    // add the home and posts menu items
+    ninja.data = [{
+        id: "nav-about",
+        title: "about",
+        section: "Navigation",
+        handler: () => {
+          window.location.href = "/";
+        },
+      },{id: "nav-blog",
+              title: "blog",
+              description: "high-quality and concise technical posts",
+              section: "Navigation",
+              handler: () => {
+                window.location.href = "/blog/";
+              },
+            },{id: "nav-publications-and-pre-prints",
+              title: "publications and pre-prints",
+              description: "publications by categories in reversed chronological order. *,^ denotes equal author contribution.",
+              section: "Navigation",
+              handler: () => {
+                window.location.href = "/publications/";
+              },
+            },{id: "nav-projects",
+              title: "projects",
+              description: "Some research and other related projects I&#39;ve been working on. Everything here is either a personal project or a research project unrelated to my lab.",
+              section: "Navigation",
+              handler: () => {
+                window.location.href = "/projects/";
+              },
+            },{id: "nav-academics",
+              title: "academics",
+              description: "awards &amp; coursework I&#39;ve taken / TA&#39;d for",
+              section: "Navigation",
+              handler: () => {
+                window.location.href = "/academics/";
+              },
+            },{id: "post-language-model-harnesses-are-compositional-generalizers",
+          
+            title: "Language model harnesses are compositional generalizers",
+          
+          description: "Harnesses can lead to compositional generalization: we observe a property in training RLMs, in which similarly structured tasks are viewed as isomorphic and all individual LM calls in the harness become in-distribution.",
+          section: "Posts",
+          handler: () => {
+            
+              window.location.href = "/blog/2026/harness/";
+            
+          },
+        },{id: "post-a-mini-exercise-on-the-mismanaged-geniuses-hypothesis-rlms-on-longcot",
+          
+            title: "A Mini Exercise on the Mismanaged Geniuses Hypothesis (RLMs on LongCoT)",
+          
+          description: "We study an example of the Mismanaged Geniuses Hypothesis at play on the LongCoT benchmark",
+          section: "Posts",
+          handler: () => {
+            
+              window.location.href = "/blog/2026/longcot-rlm/";
+            
+          },
+        },{id: "post-the-mismanaged-geniuses-hypothesis",
+          
+            title: "The Mismanaged Geniuses Hypothesis",
+          
+          description: "We propose the mismanaged geniuses hypothesis, which posits that existing frontier language models are severely underutilized due to sub-optimal use of individual language model calls.",
+          section: "Posts",
+          handler: () => {
+            
+              window.location.href = "/blog/2026/mgh/";
+            
+          },
+        },{id: "post-language-models-will-be-scaffolds",
+          
+            title: "Language Models will be Scaffolds",
+          
+          description: "The language models we interact with in the near future will be what we call scaffolds today.",
+          section: "Posts",
+          handler: () => {
+            
+              window.location.href = "/blog/2026/scaffold/";
+            
+          },
+        },{id: "post-recursive-language-models",
+          
+            title: "Recursive Language Models",
+          
+          description: "We propose Recursive Language Models (RLMs), an inference strategy where language models can decompose and recursively interact with input context of unbounded length through REPL environments.",
+          section: "Posts",
+          handler: () => {
+            
+              window.location.href = "/blog/2025/rlm/";
+            
+          },
+        },{id: "post-a-meticulous-guide-to-advances-in-deep-learning-efficiency-over-the-years",
+          
+            title: "A Meticulous Guide to Advances in Deep Learning Efficiency over the Years",
+          
+          description: "A very long and thorough guide how deep learning algorithms, hardware, libraries, compilers, and more have become more efficient.",
+          section: "Posts",
+          handler: () => {
+            
+              window.location.href = "/blog/2024/efficient-dl/";
+            
+          },
+        },{id: "post-the-annotated-kolmogorov-arnold-network-kan",
+          
+            title: "The Annotated Kolmogorov-Arnold Network (KAN)",
+          
+          description: "An annotated guide to the Kolmogorov-Arnold Network",
+          section: "Posts",
+          handler: () => {
+            
+              window.location.href = "/blog/2024/annotated-kan/";
+            
+          },
+        },{id: "post-highlights-of-neurips-2023-from-reading-all-3584-abstracts",
+          
+            title: "Highlights of NeurIPS 2023 from Reading All 3584 Abstracts",
+          
+          description: "Just me reading through every paper abstract...",
+          section: "Posts",
+          handler: () => {
+            
+              window.location.href = "/blog/2024/neurips2023/";
+            
+          },
+        },{id: "news-went-on-stage-with-lisa-su-ceo-of-amd-who-recognized-our-amd-gpu-programming-competition-and-announced-the-winners-picture-https-x-com-a1zhang-status-1933558754831999318",
+          title: 'Went on stage with Lisa Su, CEO of AMD, who recognized our AMD GPU programming competition and announced the winners! [[picture]](https://x.com/a1zhang/status/1933558754831999318).',
+          description: "",
+          section: "News",},{id: "news-started-as-a-researcher-at-vantai-https-www-vant-ai-under-the-wonderful-luca-naef-https-x-com-naefluca",
+          title: 'Started as a researcher at [VantAI](https://www.vant.ai/) under the wonderful [Luca Naef](https://x.com/naefluca)!',
+          description: "",
+          section: "News",},{id: "news-starting-a-research-internship-at-snapchat-focused-on-large-scale-recommendation-systems",
+          title: 'Starting a research internship at Snapchat focused on large-scale recommendation systems!',
+          description: "",
+          section: "News",},{id: "news-organized-and-went-on-ai-tigertrek-with-my-close-and-brilliant-friends-evan-dogariu-https-edogariu-github-io-michael-tang-https-michaeltang-xyz-and-jiatong-yu-https-www-cs-princeton-edu-jiatongy-we-visited-and-had-q-amp-a-39-s-at-openai-google-anthropic-redwood-research-stanford-hai-nuro-and-more",
+          title: 'Organized and went on AI TigerTrek with my close (and brilliant!) friends [Evan Dogariu](https://edogariu.github.io/), [Michael Tang](https://michaeltang.xyz/), and [Jiatong Yu](https://www.cs.princeton.edu/~jiatongy/)! We visited and had Q&amp;A&#39;s at OpenAI, Google, Anthropic, Redwood Research, Stanford HAI, Nuro, and more!',
+          description: "",
+          section: "News",},{id: "news-finished-my-internship-in-seattle-at-apple-infi-working-on-lms-in-siri",
+          title: 'Finished my internship in Seattle at Apple INFI working on LMs in Siri!',
+          description: "",
+          section: "News",},];
+  </script>
+
+
+    
+
+    <script src="/assets/js/shortcut-key.js"></script>
+  </body>
+</html>
