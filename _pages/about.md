@@ -5,7 +5,7 @@ permalink: /
 subtitle: Mechatronics Engineering Student at FUTMinna, RENUE Intern '25, CaCTüS Intern '26
 profile:
   align: right
-  image: Glory_Bagai.png
+  image: Glory_Bagai.jpg
   image_circular: false # crops the image to make it circular
   # address: >
   #   <p>555 your office number</p>
