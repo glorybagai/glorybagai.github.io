@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://alexzhang13.github.io/sitemap.xml
+Sitemap: https://glorybagai.github.io/sitemap.xml

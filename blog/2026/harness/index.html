@@ -15,11 +15,11 @@
   
   
     
-      Language model harnesses are compositional generalizers | Alex L. Zhang
+      Language model harnesses are compositional generalizers | Glory K. Bagai
     
   
 </title>
-<meta name="author" content="Alex L. Zhang">
+<meta name="author" content="Glory K. Bagai">
 <meta name="description" content="Harnesses can lead to compositional generalization: we observe a property in training RLMs, in which similarly structured tasks are viewed as isomorphic and all individual LM calls in the harness become in-distribution.">
 
   <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website">
@@ -30,10 +30,10 @@
 
 
   <!-- OpenGraph -->
-  <meta property="og:site_name" content="Alex L. Zhang">
+  <meta property="og:site_name" content="Glory K. Bagai">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Alex L. Zhang | Language model harnesses are compositional generalizers">
-  <meta property="og:url" content="https://alexzhang13.github.io/blog/2026/harness/">
+  <meta property="og:title" content="Glory K. Bagai | Language model harnesses are compositional generalizers">
+  <meta property="og:url" content="https://glorybagai.github.io/blog/2026/harness/">
   <meta property="og:description" content="Harnesses can lead to compositional generalization: we observe a property in training RLMs, in which similarly structured tasks are viewed as isomorphic and all individual LM calls in the harness become in-distribution.">
   
     <meta property="og:image" content="https://alexzhang13.github.io/assets/img/preview/harnesses.png">
@@ -47,9 +47,6 @@
   
     <meta name="twitter:image" content="https://alexzhang13.github.io/assets/img/preview/harnesses.png">
   
-  
-    <meta name="twitter:site" content="@a1zhang">
-    <meta name="twitter:creator" content="@a1zhang">
   
 
 
@@ -98,16 +95,16 @@
         "author":
         {
             "@type": "Person",
-            "name": "Alex L. Zhang"
+            "name": "Glory K. Bagai"
         },
-        "url": "https://alexzhang13.github.io/blog/2026/harness/",
+        "url": "https://glorybagai.github.io/blog/2026/harness/",
         "@type": "BlogPosting",
         "description": "Harnesses can lead to compositional generalization: we observe a property in training RLMs, in which similarly structured tasks are viewed as isomorphic and all individual LM calls in the harness become in-distribution.",
         "headline": "Language model harnesses are compositional generalizers",
         
-        "sameAs": ["https://scholar.google.com/citations?user=rtCr0q4AAAAJ", "https://github.com/alexzhang13", "https://www.linkedin.com/in/alexzhang13", "https://twitter.com/a1zhang"],
+        "sameAs": ["https://github.com/glorybagai", "https://www.linkedin.com/in/Glory Bagai"],
         
-        "name": "Alex L. Zhang",
+        "name": "Glory K. Bagai",
         "@context": "https://schema.org"
     }
   </script>
@@ -139,7 +136,7 @@
   <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%AB%A1&lt;/text&gt;&lt;/svg&gt;">
 
 <link rel="stylesheet" href="/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e">
-<link rel="canonical" href="https://alexzhang13.github.io/blog/2026/harness/">
+<link rel="canonical" href="https://glorybagai.github.io/blog/2026/harness/">
 
 <!-- Dark Mode -->
 <script src="/assets/js/theme.js?9a0c749ec5240d9cda97bc72359a72c0"></script>
@@ -278,10 +275,10 @@
         <a class="navbar-brand title font-weight-lighter" href="/">
           
             
-              <span class="font-weight-bold">Alex</span>
+              <span class="font-weight-bold">Glory</span>
             
-            L.
-            Zhang
+            K.
+            Bagai
           
         </a>
       
@@ -455,7 +452,7 @@
 
 <p>Training data is not the only lever, of course. For the past few years, we’ve attacked harder tasks by <em>scaffolding</em> the Transformer, first with chain-of-thought reasoning, then with tool use, and so on. Yet across all of this, <em>generalization</em> itself has been left to the underlying neural network and to its <a href="https://arxiv.org/abs/1706.03762" rel="external nofollow noopener" target="_blank">2017 token-level inductive biases</a>. We argue that better generalization is largely the job of what today is called a <em>harness</em>. A harness is the program that sits between the external world and the neural network: it decides how to encode the current state of the environment, which can be arbitrarily long and complex, into one or more inputs to the LLM and how to determine the next action. <strong>The primary job of the harness should be to carry a higher-level inductive bias that can reduce unfamiliar and complex problems to compositions of simpler ones for the underlying neural network.</strong></p>
 
-<p>Concretely, we think a good harness is one that <strong>shapes each call to the underlying Transformer so that every observation is <em>locally in-distribution</em></strong>, i.e. each Transformer call handles a prompt that is in-distribution with respect to its training data. In fact, a good harness can frequently reduce problems that seem to require breakthroughs in post-training into almost mundane capabilities of the existing generation of language models. We first showed a version of this for long context processing <a href="https://alexzhang13.github.io/blog/2025/rlm/">nearly a year ago</a> and, in this post, we show that this principle extends to the efficiency of <em>learning</em> itself. That is, <strong>what a model learns through a well-designed harness generalizes across task lengths and across domains</strong> far better than training the neural network on its own does.</p>
+<p>Concretely, we think a good harness is one that <strong>shapes each call to the underlying Transformer so that every observation is <em>locally in-distribution</em></strong>, i.e. each Transformer call handles a prompt that is in-distribution with respect to its training data. In fact, a good harness can frequently reduce problems that seem to require breakthroughs in post-training into almost mundane capabilities of the existing generation of language models. We first showed a version of this for long context processing <a href="https://alexzhang13.github.io/blog/2025/rlm/" rel="external nofollow noopener" target="_blank">nearly a year ago</a> and, in this post, we show that this principle extends to the efficiency of <em>learning</em> itself. That is, <strong>what a model learns through a well-designed harness generalizes across task lengths and across domains</strong> far better than training the neural network on its own does.</p>
 
 <p>We test this by using reinforcement learning (RL) to train a Recursive Language Model (RLM), a harness in which the model offloads its context and defers execution to programmatic decomposition and recursive sub-calls. The results are summarized in Figure 1. Training on only short tasks generalizes to held-out tasks 8–32x longer, with roughly 10x the eval lift with the same train lift over training the underlying Transformer directly. Moreover, training on one domain transfers to other domains at a far better rate than that of a vanilla Transformer.</p>
 
@@ -479,7 +476,7 @@
 
 <p>Open problems in AI often boil down to challenges of getting deep neural networks (DNNs) to generalize. This is the issue that modern post-training attempts to bandage with targeted environments based on perceived applications. In this post, we argue that the perhaps boring old concept of <strong>compositional generalization</strong>, which is the ability to solve unseen problems by composing familiar concepts and patterns, is becoming painfully clear as a necessary and scalable meta-capability that we must begin to prioritize in modern AI systems.</p>
 
-<p>We argued before, via the <a href="https://alexzhang13.github.io/blog/2026/mgh/"><strong>Mismanaged Geniuses Hypothesis (MGH)</strong></a> <d-cite key="zhang2026mgh"></d-cite>, that tasks which humans care about solving, can apparently almost always be decomposed rather naturally into sub-tasks that are not only far simpler but also which are not far beyond the current generation of language models. Compositional generalization is key for leveraging this in practice and enabling our systems’ reachable task space to extend beyond their training set’s direct coverage, especially for tasks that may look nothing alike in their surface-level tokens while sharing some underlying structure.</p>
+<p>We argued before, via the <a href="https://alexzhang13.github.io/blog/2026/mgh/" rel="external nofollow noopener" target="_blank"><strong>Mismanaged Geniuses Hypothesis (MGH)</strong></a> <d-cite key="zhang2026mgh"></d-cite>, that tasks which humans care about solving, can apparently almost always be decomposed rather naturally into sub-tasks that are not only far simpler but also which are not far beyond the current generation of language models. Compositional generalization is key for leveraging this in practice and enabling our systems’ reachable task space to extend beyond their training set’s direct coverage, especially for tasks that may look nothing alike in their surface-level tokens while sharing some underlying structure.</p>
 
 <figure>
 <center>
@@ -742,9 +739,9 @@ $$
 
     <div class="container">
       © Copyright 2026
-      Alex
-      L.
-      Zhang. 
+      Glory
+      K.
+      Bagai. 
       
       
     </div>
@@ -758,14 +755,14 @@ $$
 
     
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K2L3VESDMP"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id="></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() {
       window.dataLayer.push(arguments);
     }
     gtag('js', new Date());
-    gtag('config', 'G-K2L3VESDMP');
+    gtag('config', '');
   </script>
 
 
