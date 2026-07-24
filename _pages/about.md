@@ -2,10 +2,10 @@
 layout: about
 title: about
 permalink: /
-subtitle: PhD Student at MIT CSAIL, Princeton CS '24
+subtitle: Mechatronics Engineering Student at FUTMinna, RENUE Intern '25, CaCTüS Intern '26
 profile:
   align: right
-  image: az.png
+  image: Glory_Bagai.png
   image_circular: false # crops the image to make it circular
   # address: >
   #   <p>555 your office number</p>
@@ -21,7 +21,10 @@ _styles: >
         margin-top: -10px;
     }
 ---
-Hi! I broadly work on areas where language models are underutilized or inefficient. I am currently a 1st year PhD student at <a href="https://www.csail.mit.edu">MIT CSAIL</a> advised by <a href="https://omarkhattab.com">Omar Khattab</a> and <a href="https://people.csail.mit.edu/kraska/">Tim Kraska</a>. I am grateful to be a <a href="https://www.laude.org">Laude Open Research Resident</a> and a research fellow at <a href="https://www.primeintellect.ai">Prime Intellect</a> to push forward open science. I am also a recipient of the <a href="https://www.nsfgrfp.org">NSF GRFP</a>.
+Hi! I broadly work on areas where models are underutilized or inefficient particularly for optimization and resource constraints. I am currently a research intern at the <a href="https://tue.ellis.eu/dmo">Deep Models and Optimization Group</a> at the Max Planck Institute for Intelligent Systems</a> advised by <a href="http://orvi.altervista.org/">Antonio Orvieto</a> and <a href="https://jonasgeiping.github.io/"> Jonas Geiping</a>. 
+In the long term, I aspire to contribute to industry research and development while also establishing my own academic lab as a principal investigator, leading innovative and inclusive research efforts.
+Beyond research, I am a passionate leader and mentor dedicated to empowering girls in STEM. Through organisations such as Technovation, WAAW Foundation, and IEEE, I have facilitated programmes that have impacted approximately 1,000 girls across Nigeria. I am deeply committed to advancing female STEM education across Africa. Addressing the challenges of female education in Africa is a mission I have chosen to pursue. I may not know how long it will take or whether I will live to see its full impact, but I believe in the ripple effect: small actions can create far-reaching change.
+
 
 Some notable things worth mentioning:
 <ul>
@@ -30,25 +33,10 @@ Some notable things worth mentioning:
   <li>Graduated as the <a href="https://www.cs.princeton.edu/news/class-day-department-celebrates-accomplishments-graduates">top student of the Princeton CS department</a>, and fortunate to have been advised by <a href="https://www.cs.princeton.edu/~karthikn/">Karthik Narasimhan</a>, <a href="https://machineslearner.com">Khanh Nguyen</a>, <a href="https://ofir.io">Ofir Press</a>, and <a href="https://www.cs.princeton.edu/~li/">Kai Li</a>.</li>
 </ul>
 
-I've had brief but pleasant stints at a variety of companies: <a href="https://sakana.ai">Sakana AI</a>, <a href="https://www.vant.ai">VantAI</a>, <a href="https://research.snap.com">Snap Research</a>, <a href="https://machinelearning.apple.com">Apple</a>, and <a href="https://www.claryo.co">Claryo</a>.
+I've had brief but pleasant stints at a variety of companies: <a href="https://is.mpg.de/">Max Planck Institute for Intelligent Systems</a>, <a href="https://www.chevron.com/worldwide/nigeria">Chevron Nigeria Limited</a>, <a href="https://web.mit.edu/">Massachusetts Institute of Technology</a>, and <a href="https://mlcollective.org/">Machine Learning Collective</a>.
 
 <p>
 <br>
 </p>
 
-
-### research highlights:
-
-<ul>
-  <li><b>ML Systems.</b> <a href="https://arxiv.org/abs/2512.24601">Recursive Language Models (RLMs)</a> (2025), <a href="https://gpu-mode.github.io/popcorn/">Project Popcorn 🍿</a> (2025), <a href="https://github.com/Ligo-Biosciences/AlphaFold3?tab=readme-ov-file#msa-pair-averaging-efficiency">Triton kernels for OSS AlphaFold3 (1k+ ⭐'s)</a> (2024)</li>
-  <li><b>Language Model Benchmarks.</b> <a href="http://www.vgbench.com">VideoGameBench</a> (2025), <a href="https://arxiv.org/abs/2502.10517v1">KernelBench</a> (ICML, 2025), <a href="https://www.swebench.com/multimodal.html">SWE-bench Multimodal</a> <img src="assets/img/swellamamm.png" alt="emoji" width="20" style="vertical-align: middle;"> (ICLR, 2025)</li>
-  <li><b>Models.</b> <a href="https://www.vant.ai/neo-1">Neo-1</a> (2025), <a href="https://huggingface.co/facebook/KernelLLM">KernelLLM-8B</a> (2025), <a href="https://arxiv.org/abs/2402.01695">Language-guided World Models</a> (SpLU-RoboNLP @ ACL, 2024)</li>
-
-</ul>
-<!-- in  and <a href="https://arxiv.org/abs/2302.04449">guiding</a> agent behavior in different data modalities</b> to create more reliable, interpretable, and less data hungry AI models. I'm also very interested -->
-
-<p>
-<br>
-</p>
-
-Feel free to reach out to talk about anything through my email at [x]@mit.edu where [x]=altzhang. Finally, I'm also fairly active in and help moderate the <a href="https://www.youtube.com/channel/UCJgIbYl6C5no72a0NUAPcTA">GPU MODE</a> community. As a last fun fact, I used to make and sell PC games, one of which was mildly successful (~100k+ players). <a href="https://www.youtube.com/watch?v=6Mmfo44FxhA">[unfinished example]</a> 
+Feel free to reach out to talk about anything through my email.
