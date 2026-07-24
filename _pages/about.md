@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Mechatronics Engineering Student at FUTMinna, RENUE Intern '25, CaCTüS Intern '26
+subtitle: Mechatronics Engineering Student, RENUE Intern '25, CaCTüS Intern '26
 profile:
   align: right
   image: Glory_Bagai.jpg
@@ -23,7 +23,7 @@ _styles: >
 ---
 Hi! I broadly work on areas where models are underutilized or inefficient particularly for optimization and resource constraints. I am currently a research intern at the <a href="https://tue.ellis.eu/dmo">Deep Models and Optimization Group</a> at the Max Planck Institute for Intelligent Systems</a> advised by <a href="http://orvi.altervista.org/">Antonio Orvieto</a> and <a href="https://jonasgeiping.github.io/"> Jonas Geiping</a>. 
 In the long term, I aspire to contribute to industry research and development while also establishing my own academic lab as a principal investigator, leading innovative and inclusive research efforts.
-Beyond research, I am a passionate leader and mentor dedicated to empowering girls in STEM. Through organisations such as Technovation, WAAW Foundation, and IEEE, I have facilitated programmes that have impacted approximately 1,000 girls across Nigeria. I am deeply committed to advancing female STEM education across Africa. Addressing the challenges of female education in Africa is a mission I have chosen to pursue. I may not know how long it will take or whether I will live to see its full impact, but I believe in the ripple effect: small actions can create far-reaching change.
+Beyond research, and Through organisations such as Technovation, WAAW Foundation, and IEEE, I have facilitated programmes that have impacted approximately 1,000 girls across Nigeria..
 
 
 Some notable things worth mentioning:
