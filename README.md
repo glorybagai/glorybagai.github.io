@@ -1,6 +1,6 @@
 # glorybagai.github.io
 
-Personal website for Glory K. Bagai. Plain HTML, CSS and JavaScript — no Jekyll,
+Personal website for Glory K. Bagai. Theme v3: pill navigation, hero, blue and amber palette. Plain HTML, CSS and JavaScript — no Jekyll,
 no build step, no dependencies to install.
 
 ```
@@ -78,5 +78,6 @@ Then open http://localhost:8000 in a browser.
   straight away — leave that one as it is.
 - **Links and social icons** — the header block at the top of each page.
 - **Footer** — the copyright line sits at the bottom of all four pages.
-- **Colour** — change `--accent` at the top of `assets/css/style.css` to restyle
-  the whole site at once.
+- **Colour** — the palette lives in `:root` at the top of `assets/css/style.css`.
+  `--accent` is the deep blue used for links, `--soft` the pale blue used for the
+  hero disc and highlight marker, `--warm` the amber used for dates and labels.
