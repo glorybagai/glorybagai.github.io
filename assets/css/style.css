@@ -1,4 +1,4 @@
-/* glorybagai.github.io — v3 — pill nav, hero, blue + amber from portrait */
+/* glorybagai.github.io — v4 — pill nav, hero, blue + amber from portrait */
 :root {
   --ink: #141c2e;
   --body: #2b3344;
@@ -100,7 +100,7 @@ h1, h2, h3 { color: var(--ink); letter-spacing: -0.02em; }
 .search-open:hover { color: var(--accent); }
 .search-open svg { width: 15px; height: 15px; fill: currentColor; }
 
-.pill-cta {
+.site-nav a.pill-cta {
   background: var(--ink);
   color: #fff;
   border-radius: 999px;
@@ -111,7 +111,7 @@ h1, h2, h3 { color: var(--ink); letter-spacing: -0.02em; }
   text-transform: uppercase;
   white-space: nowrap;
 }
-.pill-cta:hover { background: var(--accent); color: #fff; text-decoration: none; }
+.site-nav a.pill-cta:hover { background: var(--accent); color: #fff; text-decoration: none; }
 
 /* ---------- hero ---------- */
 
@@ -221,7 +221,7 @@ h1, h2, h3 { color: var(--ink); letter-spacing: -0.02em; }
 /* ---------- about body ---------- */
 
 .about { padding-bottom: 1rem; }
-.about p { max-width: 48rem; }
+.about p { max-width: none; }
 
 /* ---------- page titles ---------- */
 
@@ -526,7 +526,7 @@ blockquote.note {
     gap: 0.9rem;
   }
   .site-nav { gap: 1rem; }
-  .pill-cta { padding: 0.55rem 1.1rem; }
+  .site-nav a.pill-cta { padding: 0.55rem 1.1rem; }
   .record { grid-template-columns: 2.9rem 1fr; }
   .news-item { grid-template-columns: 1fr; gap: 0.2rem; }
   .news-date { padding-top: 0; }
