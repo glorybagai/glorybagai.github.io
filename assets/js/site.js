@@ -55,7 +55,8 @@ document.querySelectorAll('.gallery').forEach(function (gallery) {
 /* Search (ctrl + k) ------------------------------------------------- */
 (function () {
   var INDEX = [
-    { t: 'About', d: 'Mechatronics engineering, optimisation, efficient model design', u: 'index.html' },
+    { t: 'Home', d: 'Glory K. Bagai \u2014 research and volunteering', u: 'index.html' },
+    { t: 'About', d: 'Mechatronics engineering, optimisation, efficient model design', u: 'about.html' },
     { t: 'Research', d: 'Publications and presentations', u: 'research.html' },
     { t: 'News', d: 'Recent updates', u: 'news.html' },
     { t: 'Volunteering', d: 'Female STEM advocacy across Nigeria', u: 'volunteering.html' },
