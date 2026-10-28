@@ -1,4 +1,4 @@
-/* glorybagai.github.io — v4 — pill nav, hero, blue + amber from portrait */
+/* glorybagai.github.io — v6 — pill nav, hero, blue + amber from portrait */
 :root {
   --ink: #141c2e;
   --body: #2b3344;
@@ -276,6 +276,18 @@ h1, h2, h3 { color: var(--ink); letter-spacing: -0.02em; }
 .record .venue { display: block; color: var(--muted); font-size: 0.92rem; margin-top: 0.2rem; }
 .record .me { font-weight: 700; color: var(--ink); }
 
+.paper-link {
+  display: inline-block;
+  margin-left: 0.15rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border-bottom: 2px solid var(--soft);
+}
+.paper-link:hover { color: var(--accent-hover); border-bottom-color: var(--accent); text-decoration: none; }
+
 /* ---------- news ---------- */
 
 .news { max-width: none; }
@@ -410,6 +422,8 @@ blockquote.note {
 .gallery.hero { margin: 0 0 3rem; }
 .gallery .track { position: relative; width: 100%; aspect-ratio: 4 / 3; }
 .gallery.hero .track { aspect-ratio: 16 / 9; }
+.gallery.hero img { object-fit: cover; object-position: 50% 32%; }
+.gallery.docs .track { aspect-ratio: 4 / 5; }
 
 .gallery img {
   position: absolute;
@@ -531,6 +545,53 @@ blockquote.note {
   .news-item { grid-template-columns: 1fr; gap: 0.2rem; }
   .news-date { padding-top: 0; }
   .gallery .track, .gallery.hero .track { aspect-ratio: 4 / 3; }
+  .gallery.docs .track { aspect-ratio: 3 / 4; }
   .gallery button { width: 2.2rem; height: 2.2rem; }
   .site-foot .wrap { justify-content: center; text-align: center; }
+}
+
+
+/* ---------- cursor ---------- */
+
+.cursor-dot, .cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 90;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.cursor-dot {
+  width: 7px;
+  height: 7px;
+  margin: -3.5px 0 0 -3.5px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.cursor-ring {
+  width: 34px;
+  height: 34px;
+  margin: -17px 0 0 -17px;
+  border-radius: 50%;
+  border: 1.5px solid var(--accent);
+  transition: opacity 0.25s ease, width 0.22s ease, height 0.22s ease,
+              margin 0.22s ease, background-color 0.22s ease, border-color 0.22s ease;
+}
+
+body.cursor-on .cursor-dot,
+body.cursor-on .cursor-ring { opacity: 1; }
+
+body.cursor-on .cursor-ring.hot {
+  width: 56px;
+  height: 56px;
+  margin: -28px 0 0 -28px;
+  background: rgba(196, 205, 238, 0.35);
+  border-color: var(--accent);
+}
+
+@media (hover: none), (prefers-reduced-motion: reduce) {
+  .cursor-dot, .cursor-ring { display: none; }
 }
