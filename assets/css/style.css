@@ -1,4 +1,4 @@
-/* glorybagai.github.io — v6 — pill nav, hero, blue + amber from portrait */
+/* glorybagai.github.io — v7 — pill nav, hero, blue + amber from portrait */
 :root {
   --ink: #141c2e;
   --body: #2b3344;
@@ -551,6 +551,20 @@ blockquote.note {
 }
 
 
+/* ---------- cursor field ---------- */
+
+#cursor-field {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.85;
+}
+
+body > header, body > main, body > footer { position: relative; z-index: 1; }
+
 /* ---------- cursor ---------- */
 
 .cursor-dot, .cursor-ring {
@@ -595,3 +609,142 @@ body.cursor-on .cursor-ring.hot {
 @media (hover: none), (prefers-reduced-motion: reduce) {
   .cursor-dot, .cursor-ring { display: none; }
 }
+
+
+/* ---------- theme toggle ---------- */
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  color: var(--ink);
+}
+.theme-toggle:hover { color: var(--accent); }
+.theme-toggle svg { width: 17px; height: 17px; fill: currentColor; }
+.theme-toggle .i-moon { display: none; }
+[data-theme="dark"] .theme-toggle .i-sun { display: none; }
+[data-theme="dark"] .theme-toggle .i-moon { display: inline; }
+
+/* ---------- research: next links ---------- */
+
+.next-links {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 2.25rem;
+}
+
+/* ---------- news timeline ---------- */
+
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 1rem 0;
+  position: relative;
+}
+
+.tl-item {
+  position: relative;
+  padding: 0 0 2.4rem 2.5rem;
+}
+
+.tl-item::before {
+  content: "";
+  position: absolute;
+  left: 0.42rem;
+  top: 1.1rem;
+  bottom: -0.3rem;
+  border-left: 2px dashed var(--soft);
+}
+
+.tl-item:last-child::before { display: none; }
+
+.tl-dot {
+  position: absolute;
+  left: 0;
+  top: 0.4rem;
+  width: 0.95rem;
+  height: 0.95rem;
+  border-radius: 50%;
+  border: 2px solid var(--soft);
+  background: var(--bg);
+}
+
+.tl-item.latest .tl-dot {
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--soft-tint);
+}
+
+.tl-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.45rem;
+}
+
+.tl-date {
+  color: var(--warm);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.tl-kind {
+  border: 1.5px solid var(--soft);
+  border-radius: 999px;
+  padding: 0.1rem 0.75rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+}
+
+.tl-text { margin: 0; }
+
+@media (max-width: 720px) {
+  .tl-item { padding-left: 1.9rem; }
+}
+
+/* ---------- dark theme ---------- */
+
+[data-theme="dark"] {
+  --ink: #eef2fa;
+  --body: #c3ccdd;
+  --muted: #8b97ad;
+  --accent: #a9c0f2;
+  --accent-hover: #ccdbff;
+  --soft: #30406b;
+  --soft-tint: #19233a;
+  --warm: #e0ab5c;
+  --warm-tint: #2a2114;
+  --rule: #253049;
+  --bg: #0d1420;
+}
+
+[data-theme="dark"] .bar,
+[data-theme="dark"] .search-box,
+[data-theme="dark"] .gallery button,
+[data-theme="dark"] .gallery .count { background: #121b2b; }
+
+[data-theme="dark"] .site-nav a.pill-cta { background: var(--accent); color: #0d1420; }
+[data-theme="dark"] .site-nav a.pill-cta:hover { background: var(--accent-hover); color: #0d1420; }
+
+[data-theme="dark"] .btn-solid { background: var(--accent); color: #0d1420; border-color: var(--accent); }
+[data-theme="dark"] .btn-solid:hover { background: var(--accent-hover); border-color: var(--accent-hover); color: #0d1420; }
+[data-theme="dark"] .btn-ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
+[data-theme="dark"] .btn-ghost:hover { background: var(--soft-tint); color: var(--ink); }
+
+[data-theme="dark"] .gallery { background: var(--soft-tint); }
+[data-theme="dark"] .hero-photo img,
+[data-theme="dark"] .impact div,
+[data-theme="dark"] .gallery { border-color: var(--soft); }
+[data-theme="dark"] .hero-sub mark { background: var(--soft); color: var(--ink); }
+[data-theme="dark"] .cursor-ring.hot { background: rgba(169, 192, 242, 0.18); }
