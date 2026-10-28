@@ -114,3 +114,47 @@ document.querySelectorAll('.gallery').forEach(function (gallery) {
 
   list.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
 })();
+
+/* Cursor: dot that tracks, ring that eases behind ----------------- */
+(function () {
+  var fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!fine || still) return;
+
+  var dot = document.createElement('div');
+  var ring = document.createElement('div');
+  dot.className = 'cursor-dot';
+  ring.className = 'cursor-ring';
+  document.body.appendChild(dot);
+  document.body.appendChild(ring);
+
+  var mx = window.innerWidth / 2, my = window.innerHeight / 2;
+  var rx = mx, ry = my;
+
+  document.addEventListener('mousemove', function (e) {
+    mx = e.clientX;
+    my = e.clientY;
+    dot.style.transform = 'translate(' + mx + 'px,' + my + 'px)';
+    document.body.classList.add('cursor-on');
+  });
+
+  document.addEventListener('mouseleave', function () {
+    document.body.classList.remove('cursor-on');
+  });
+
+  function loop() {
+    rx += (mx - rx) * 0.16;
+    ry += (my - ry) * 0.16;
+    ring.style.transform = 'translate(' + rx + 'px,' + ry + 'px)';
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+
+  var HOT = 'a, button, input, .gallery, summary, [role="button"]';
+  document.addEventListener('mouseover', function (e) {
+    if (e.target.closest && e.target.closest(HOT)) ring.classList.add('hot');
+  });
+  document.addEventListener('mouseout', function (e) {
+    if (e.target.closest && e.target.closest(HOT)) ring.classList.remove('hot');
+  });
+})();
