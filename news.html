@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>News &middot; Glory K. Bagai</title>
@@ -18,9 +27,15 @@
         <nav class="site-nav">
           <a href="about.html">about</a>
           <a href="research.html">research</a>
+          <a href="publications.html">publications</a>
+          <a href="presentations.html">presentations</a>
           <a href="news.html" class="current" aria-current="page">news</a>
           <a href="volunteering.html">volunteering</a>
           <button class="search-open" type="button" aria-label="Search this site"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"/></svg></button>
+          <button class="theme-toggle" type="button" aria-label="Switch between light and dark mode">
+            <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-13a1 1 0 0 1-1-1V1a1 1 0 1 1 2 0v2a1 1 0 0 1-1 1zm0 19a1 1 0 0 1-1-1v-2a1 1 0 1 1 2 0v2a1 1 0 0 1-1 1zM4 13H2a1 1 0 1 1 0-2h2a1 1 0 1 1 0 2zm18 0h-2a1 1 0 1 1 0-2h2a1 1 0 1 1 0 2zM5.6 6.99 4.19 5.58a1 1 0 0 1 1.42-1.42L7.02 5.6A1 1 0 0 1 5.6 6.99zm12.8 12.8-1.41-1.41a1 1 0 0 1 1.41-1.42l1.42 1.42a1 1 0 0 1-1.42 1.41zM6.99 18.4 5.58 19.8a1 1 0 0 1-1.42-1.41l1.42-1.42a1 1 0 0 1 1.41 1.42zM19.8 5.58 18.4 7a1 1 0 1 1-1.42-1.41l1.42-1.42a1 1 0 0 1 1.41 1.42z"/></svg>
+            <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21.5 14.1A9 9 0 1 1 9.9 2.5a7 7 0 0 0 11.6 11.6z"/></svg>
+          </button>
           <a class="pill-cta" href="mailto:bagaiglory@gmail.com">Contact</a>
         </nav>
       </div>
@@ -30,48 +45,88 @@
   <main class="wrap">
     <h1 class="page-title">News</h1>
 
-    <div class="news">
-      <div class="news-item">
-        <span class="news-date">July 2026</span>
-        <p class="news-text">Resumed a research internship at the <a href="https://is.mpg.de/" target="_blank" rel="noopener">Max Planck Institute for Intelligent Systems</a>, working on &ldquo;Structured Fine-Tuning for LLMs&rdquo; under the supervision of Joana Si&#322;wa, Antonio Orvieto and Jonas Geiping.</p>
-      </div>
-      <div class="news-item">
-        <span class="news-date">May 2026</span>
-        <p class="news-text">Resumed at <a href="https://www.chevron.com/worldwide/nigeria" target="_blank" rel="noopener">Chevron Nigeria Limited</a> as an Engineering Intern with the Supply Chain Management team.</p>
-      </div>
-      <div class="news-item">
-        <span class="news-date">May 2026</span>
-        <p class="news-text">My paper and poster were accepted at the Deep Learning IndabaX Nigeria 2026 conference, where I gave an oral talk.</p>
-      </div>
-      <div class="news-item">
-        <span class="news-date">May 2026</span>
-        <p class="news-text">Our NAICE paper &ldquo;A Lightweight ML Framework for Predictive Maintenance and Operational Safety in Offshore Energy Systems&rdquo; was accepted to the conference.</p>
-      </div>
-      <div class="news-item">
-        <span class="news-date">May 2026</span>
-        <p class="news-text">I will be speaking at <a href="https://africa.pycon.org/2026/talks/gAG4b2K/talk_details/" target="_blank" rel="noopener">PyCon Africa</a> in October 2026 on &ldquo;Building Real-Time Voice Agents That Listen and Respond in Python&rdquo;.</p>
-      </div>
-      <div class="news-item">
-        <span class="news-date">May 2026</span>
-        <p class="news-text">Served as a Technovation judge for the beginners division; the team I mentored in the senior division placed second in Nigeria.</p>
-      </div>
-      <div class="news-item">
-        <span class="news-date">Apr 2026</span>
-        <p class="news-text">Honoured to mentor girls for the Cisco &times; Technovation International Girls in ICT Day pitch competition.</p>
-      </div>
-      <div class="news-item">
-        <span class="news-date">Oct 2025</span>
-        <p class="news-text">Presented research on &ldquo;Resource-Efficient Deep Learning Architectures for Rapid and Accurate Reconstruction of Bragg Coherent Diffraction Imaging&rdquo; at the DSN AI Bootcamp 2025 and at the RENEU annual symposium.</p>
-      </div>
-      <div class="news-item">
-        <span class="news-date">Aug 2025</span>
-        <p class="news-text">Selected as a Millennium Fellow from over 60,000 applicants worldwide; mentored 100+ high school students aged 10&ndash;17 through the Global Goals Classroom.</p>
-      </div>
-      <div class="news-item">
-        <span class="news-date">Jun 2025</span>
-        <p class="news-text">Selected as one of six undergraduates nationwide for the Research Experience for Nigerian Undergraduates (RENEU), and the first student selected at third-year level.</p>
-      </div>
-    </div>
+    <ol class="timeline">
+      <li class="tl-item latest">
+        <span class="tl-dot" aria-hidden="true"></span>
+        <div class="tl-meta">
+          <span class="tl-date">JUL 2026</span>
+          <span class="tl-kind">POSITION</span>
+        </div>
+        <p class="tl-text">Resumed a research internship at the <a href="https://is.mpg.de/" target="_blank" rel="noopener">Max Planck Institute for Intelligent Systems</a>, working on &ldquo;Structured Fine-Tuning for LLMs&rdquo; under the supervision of Joana Si&#322;wa, Antonio Orvieto and Jonas Geiping.</p>
+      </li>
+      <li class="tl-item">
+        <span class="tl-dot" aria-hidden="true"></span>
+        <div class="tl-meta">
+          <span class="tl-date">MAY 2026</span>
+          <span class="tl-kind">POSITION</span>
+        </div>
+        <p class="tl-text">Resumed at <a href="https://www.chevron.com/worldwide/nigeria" target="_blank" rel="noopener">Chevron Nigeria Limited</a> as an Engineering Intern with the Supply Chain Management team.</p>
+      </li>
+      <li class="tl-item">
+        <span class="tl-dot" aria-hidden="true"></span>
+        <div class="tl-meta">
+          <span class="tl-date">MAY 2026</span>
+          <span class="tl-kind">PAPER</span>
+        </div>
+        <p class="tl-text">My paper and poster were accepted at the Deep Learning IndabaX Nigeria 2026 conference, where I gave an oral talk.</p>
+      </li>
+      <li class="tl-item">
+        <span class="tl-dot" aria-hidden="true"></span>
+        <div class="tl-meta">
+          <span class="tl-date">MAY 2026</span>
+          <span class="tl-kind">PAPER</span>
+        </div>
+        <p class="tl-text">Our NAICE paper &ldquo;A Lightweight ML Framework for Predictive Maintenance and Operational Safety in Offshore Energy Systems&rdquo; was accepted to the conference.</p>
+      </li>
+      <li class="tl-item">
+        <span class="tl-dot" aria-hidden="true"></span>
+        <div class="tl-meta">
+          <span class="tl-date">MAY 2026</span>
+          <span class="tl-kind">TALK</span>
+        </div>
+        <p class="tl-text">I will be speaking at <a href="https://africa.pycon.org/2026/talks/gAG4b2K/talk_details/" target="_blank" rel="noopener">PyCon Africa</a> in October 2026 on &ldquo;Building Real-Time Voice Agents That Listen and Respond in Python&rdquo;.</p>
+      </li>
+      <li class="tl-item">
+        <span class="tl-dot" aria-hidden="true"></span>
+        <div class="tl-meta">
+          <span class="tl-date">MAY 2026</span>
+          <span class="tl-kind">MENTORING</span>
+        </div>
+        <p class="tl-text">Served as a Technovation judge for the beginners division; the team I mentored in the senior division placed second in Nigeria.</p>
+      </li>
+      <li class="tl-item">
+        <span class="tl-dot" aria-hidden="true"></span>
+        <div class="tl-meta">
+          <span class="tl-date">APR 2026</span>
+          <span class="tl-kind">MENTORING</span>
+        </div>
+        <p class="tl-text">Honoured to mentor girls for the Cisco &times; Technovation International Girls in ICT Day pitch competition.</p>
+      </li>
+      <li class="tl-item">
+        <span class="tl-dot" aria-hidden="true"></span>
+        <div class="tl-meta">
+          <span class="tl-date">OCT 2025</span>
+          <span class="tl-kind">TALK</span>
+        </div>
+        <p class="tl-text">Presented research on &ldquo;Resource-Efficient Deep Learning Architectures for Rapid and Accurate Reconstruction of Bragg Coherent Diffraction Imaging&rdquo; at the DSN AI Bootcamp 2025 and at the RENEU annual symposium.</p>
+      </li>
+      <li class="tl-item">
+        <span class="tl-dot" aria-hidden="true"></span>
+        <div class="tl-meta">
+          <span class="tl-date">AUG 2025</span>
+          <span class="tl-kind">AWARD</span>
+        </div>
+        <p class="tl-text">Selected as a Millennium Fellow from over 60,000 applicants worldwide; mentored 100+ high school students aged 10&ndash;17 through the Global Goals Classroom.</p>
+      </li>
+      <li class="tl-item">
+        <span class="tl-dot" aria-hidden="true"></span>
+        <div class="tl-meta">
+          <span class="tl-date">JUN 2025</span>
+          <span class="tl-kind">AWARD</span>
+        </div>
+        <p class="tl-text">Selected as one of six undergraduates nationwide for the Research Experience for Nigerian Undergraduates (RENEU), and the first student selected at third-year level.</p>
+      </li>
+    </ol>
   </main>
 
   <div class="search-back" role="dialog" aria-modal="true" aria-label="Search">

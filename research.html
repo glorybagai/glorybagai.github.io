@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Research &middot; Glory K. Bagai</title>
@@ -18,9 +27,15 @@
         <nav class="site-nav">
           <a href="about.html">about</a>
           <a href="research.html" class="current" aria-current="page">research</a>
+          <a href="publications.html">publications</a>
+          <a href="presentations.html">presentations</a>
           <a href="news.html">news</a>
           <a href="volunteering.html">volunteering</a>
           <button class="search-open" type="button" aria-label="Search this site"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"/></svg></button>
+          <button class="theme-toggle" type="button" aria-label="Switch between light and dark mode">
+            <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-13a1 1 0 0 1-1-1V1a1 1 0 1 1 2 0v2a1 1 0 0 1-1 1zm0 19a1 1 0 0 1-1-1v-2a1 1 0 1 1 2 0v2a1 1 0 0 1-1 1zM4 13H2a1 1 0 1 1 0-2h2a1 1 0 1 1 0 2zm18 0h-2a1 1 0 1 1 0-2h2a1 1 0 1 1 0 2zM5.6 6.99 4.19 5.58a1 1 0 0 1 1.42-1.42L7.02 5.6A1 1 0 0 1 5.6 6.99zm12.8 12.8-1.41-1.41a1 1 0 0 1 1.41-1.42l1.42 1.42a1 1 0 0 1-1.42 1.41zM6.99 18.4 5.58 19.8a1 1 0 0 1-1.42-1.41l1.42-1.42a1 1 0 0 1 1.41 1.42zM19.8 5.58 18.4 7a1 1 0 1 1-1.42-1.41l1.42-1.42a1 1 0 0 1 1.41 1.42z"/></svg>
+            <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21.5 14.1A9 9 0 1 1 9.9 2.5a7 7 0 0 0 11.6 11.6z"/></svg>
+          </button>
           <a class="pill-cta" href="mailto:bagaiglory@gmail.com">Contact</a>
         </nav>
       </div>
@@ -30,101 +45,24 @@
   <main class="wrap">
     <h1 class="page-title">Research</h1>
 
-    <h2 class="section-title">Publications</h2>
-    <p class="key">[C] Conference paper &nbsp;&middot;&nbsp; [W] Workshop paper &nbsp;&middot;&nbsp; [P] Preprint</p>
-    <div class="records">
-      <div class="record">
-        <span class="tag">[C1]</span>
-        <p class="body"><span class="authors"><span class="me">Bagai, G.</span>, Eje, O. H., and Bala, J. A. &ldquo;Benchmarking Classification Performance for Binary-Class Fault Detection Under Real-World Imbalanced Data Conditions.&rdquo;</span><span class="venue">Proceedings of IndabaX Nigeria 2026: Building Scalable AI That Works, PMLR 319:278&ndash;292, 2026. <a class="paper-link" href="https://proceedings.mlr.press/v319/kuzayet26a.html" target="_blank" rel="noopener">Paper</a></span></p>
-      </div>
-      <div class="record">
-        <span class="tag">[C2]</span>
-        <p class="body"><span class="authors">Lawal, O., Shiaki, N., <span class="me">Bagai, G.</span>, Aku, M. A., Dappa, T. A., and Esabu, B. O. &ldquo;A Lightweight Machine Learning Framework for Predictive Maintenance and Operational Safety in Operational Offshore Energy Systems.&rdquo;</span><span class="venue">SPE Nigeria Annual International Conference and Exhibition. Paper SPE-235169-MS. <a href="https://doi.org/10.2118/235169-MS" target="_blank" rel="noopener">doi:10.2118/235169-MS</a> <a class="paper-link" href="https://onepetro.org/SPENAIC/proceedings-abstract/26NAIC/26NAIC/802056" target="_blank" rel="noopener">Paper</a></span></p>
-      </div>
-      <div class="record">
-        <span class="tag">[C3]</span>
-        <p class="body"><span class="authors">Eje, O. H., Kolade, O., <span class="me">Bagai, G.</span>, and Folorunso, T. A. &ldquo;Adaptive Low-Light Enhancement for Road Anomaly Detection: A Multi-Architecture Benchmark and Edge Deployment Study.&rdquo;</span><span class="venue">IEEE NigerCON 2026. <a class="paper-link" href="https://drive.google.com/file/d/1HSvzkvTOC5MndcnsUqK6g1TqMHGrNLky/view?usp=sharing" target="_blank" rel="noopener">Paper</a></span></p>
-      </div>
-      <div class="record">
-        <span class="tag">[C4]</span>
-        <p class="body"><span class="authors">Eje, O. H., Abolarinwa, S., Kolade, O., <span class="me">Bagai, G.</span>, and Bala, J. A. &ldquo;Comparative Evaluation of Nav2 Path-Planning Algorithms for Autonomous Emergency-Response Navigation on a Real Nigerian Urban Road Network.&rdquo;</span><span class="venue">IEEE NigerCON 2026. <a class="paper-link" href="https://drive.google.com/file/d/14j_kac4rlu00SRBTcjbDke1u7NgGqV6f/view?usp=sharing" target="_blank" rel="noopener">Paper</a></span></p>
-      </div>
-      <div class="record">
-        <span class="tag">[C5]</span>
-        <p class="body"><span class="authors"><span class="me">Bagai, G.</span>, Kolade, O., Eje, O. H., and Oyedare, A. &ldquo;Domain-Shift-Aware Parameter-Efficient Fine-Tuning for Malaria Detection in Low-Resource Clinical Settings.&rdquo;</span><span class="venue">IEEE NigerCON 2026. <a class="paper-link" href="https://drive.google.com/file/d/14F3ogf73EfoOJeYR3ExkQz_eHAVIhcyj/view?usp=sharing" target="_blank" rel="noopener">Paper</a></span></p>
-      </div>
-      <div class="record">
-        <span class="tag">[C6]</span>
-        <p class="body"><span class="authors">Kolade, O., Oyedare, A., <span class="me">Bagai, G.</span>, and Eje, O. H. &ldquo;Benchmarking Machine Learning Models for Contact Force Level Estimation in Tendon-Driven Continuum Robots.&rdquo;</span><span class="venue">IEEE NigerCON 2026. <a class="paper-link" href="https://drive.google.com/file/d/1fdpqS-uBLNoljtQ0NbQ8b4LWw18NobyY/view?usp=sharing" target="_blank" rel="noopener">Paper</a></span></p>
-      </div>
-      <div class="record">
-        <span class="tag">[C7]</span>
-        <p class="body"><span class="authors">Oyedare, A., Kolade, O., <span class="me">Bagai, G.</span>, and Eje, O. H. &ldquo;A Two-Layer Hierarchical Gating Architecture for SLAM Optimisation: Rare-Event Shielding and Contextual-Bandit Policy Design on the LHSI-50M Benchmark.&rdquo;</span><span class="venue">IEEE NigerCON 2026. <a class="paper-link" href="https://drive.google.com/file/d/1JTvW0R5i69v5pPKLELXgO2nIabi7Jxc7/view?usp=sharing" target="_blank" rel="noopener">Paper</a></span></p>
-      </div>
-      <div class="record">
-        <span class="tag">[C8]</span>
-        <p class="body"><span class="authors">Kolawole, S., Jim, P., Busoye, O. M., <span class="me">Bagai, G.</span>, and Smith, V. &ldquo;A Tilted Bowl Is Not a Slippery Slope: Compressing Looped Models.&rdquo;</span><span class="venue">ICLR 2027. Under review. <a class="paper-link" href="https://arxiv.org/pdf/2609.39277" target="_blank" rel="noopener">Paper</a></span></p>
-      </div>
-      <div class="record">
-        <span class="tag">[W1]</span>
-        <p class="body"><span class="authors"><span class="me">Bagai, G.</span>, Orvieto, A., and Geiping, J. &ldquo;Does Muon&rsquo;s Advantage Survive Fine-Tuning?&rdquo;</span><span class="venue">Optimisation for Machine Learning Workshop at NeurIPS 2026. Under review. <a class="paper-link" href="https://drive.google.com/file/d/17Mx-JoKw7FzTDMIv33m8l2QIbibw_we3/view?usp=drive_link" target="_blank" rel="noopener">Paper</a></span></p>
-      </div>
-      <div class="record">
-        <span class="tag">[P1]</span>
-        <p class="body"><span class="authors">Jim, P., Kolawole, S., Busoye, O. M., <span class="me">Bagai, G.</span>, and Smith, V. &ldquo;What Survives When You Compress a Recursive Reasoner for the Edge?&rdquo;</span><span class="venue">arXiv preprint, 2026. <a class="paper-link" href="https://arxiv.org/pdf/2606.26488" target="_blank" rel="noopener">Paper</a></span></p>
-      </div>
-    </div>
+    <div class="about">
+      <p>My research examines the interplay between the theoretical foundations of deep learning and
+        the practical challenge of making machine learning efficient. On the theory side, I study
+        mathematical insights into optimization, generalization, architectures, and training
+        dynamics, exploring how these principles explain why modern networks learn and generalize.
+        On the efficiency side, I investigate how these theoretical insights inform resource-aware
+        and scalable ML, including algorithmic improvements, architecture design, and hardware-aware
+        training. By linking rigorous theory with practical efficiency, the group aims to understand
+        not only why deep learning works, but also how to make it faster, cheaper, and more
+        sustainable in real-world applications, while staying current with cutting-edge research.
+        That means building intelligent systems that can reason and adapt efficiently in complex,
+        dynamic environments, by integrating machine learning, deep learning and adaptive
+        control.</p>
 
-    <h2 class="section-title">Presentations</h2>
-    <p class="key">[T] Talk &nbsp;&middot;&nbsp; [P] Poster &nbsp;&middot;&nbsp; [O] Oral</p>
-    <div class="records">
-      <div class="record">
-        <span class="tag">[P1]</span>
-        <p class="body"><span class="authors">Jim, P., Kolawole, S., Busoye, O. M., <span class="me">Bagai, G.</span>, and Smith, V. &ldquo;What Survives When You Compress a Reasoning Model on the Edge.&rdquo;</span><span class="venue">Deep Learning Indaba 2026. <a class="paper-link" href="https://arxiv.org/pdf/2606.26488" target="_blank" rel="noopener">Paper</a></span></p>
-      </div>
-      <div class="record">
-        <span class="tag">[T1]</span>
-        <p class="body"><span class="authors"><span class="me">Bagai, G.</span> &ldquo;<a href="https://africa.pycon.org/2026/talks/gAG4b2K/talk_details/" target="_blank" rel="noopener">Building Real-Time Voice Agents That Listen and Respond in Python</a>.&rdquo;</span><span class="venue">Short talk, PyCon Africa 2026, Kampala, Uganda.</span></p>
-      </div>
-      <div class="record">
-        <span class="tag">[P2]</span>
-        <p class="body"><span class="authors">Eje, O. H., Kolade, O., <span class="me">Bagai, G.</span>, and Folorunso, T. A. &ldquo;Adaptive Low-Light Enhancement for Road Anomaly Detection: A Multi-Architecture Benchmark and Edge Deployment Study.&rdquo;</span><span class="venue">Deep Learning Indaba 2026.</span></p>
-      </div>
-      <div class="record">
-        <span class="tag">[P3]</span>
-        <p class="body"><span class="authors"><span class="me">Bagai, G.</span> &ldquo;Resource-Efficient Deep Learning Architectures for Rapid and Accurate Reconstruction of Bragg Coherent Diffraction Imaging.&rdquo;</span><span class="venue">DSN 2025 AI Bootcamp, Data Science Nigeria. <a class="paper-link" href="https://drive.google.com/file/d/1kQEOJMAoQKiOiI-3pGAvFJGc4xUMeNML/view?usp=sharing" target="_blank" rel="noopener">Slides</a></span></p>
-      </div>
-      <div class="record">
-        <span class="tag">[P4,&nbsp;O1]</span>
-        <p class="body"><span class="authors"><span class="me">Bagai, G.</span>, Eje, O. H., and Bala, J. A. &ldquo;Benchmarking Classification Performance for Binary-Class Fault Detection Under Real-World Imbalanced Data Conditions.&rdquo;</span><span class="venue">Deep Learning IndabaX Nigeria 2026; PyCon Africa 2026, Kampala, Uganda. <a class="paper-link" href="https://drive.google.com/file/d/1t9R7rTQ_CY56xLIEFhoHREUXab_1gNKt/view?usp=drive_link" target="_blank" rel="noopener">Slides</a></span></p>
-      </div>
-      <div class="record">
-        <span class="tag">[O2]</span>
-        <p class="body"><span class="authors"><span class="me">Bagai, G.</span> &ldquo;Resource-Efficient Deep Learning Architectures for Rapid and Accurate Reconstruction of Bragg Coherent Diffraction Imaging.&rdquo;</span><span class="venue">Research Experience for Nigerian Undergraduates Symposium, September 2025. <a class="paper-link" href="https://drive.google.com/file/d/1MDCfbim9ooo4k8m_wwrePJMIU2lLS2MM/view?usp=sharing" target="_blank" rel="noopener">Slides</a></span></p>
-      </div>
-      <div class="record">
-        <span class="tag">[O3]</span>
-        <p class="body"><span class="authors">Lawal, O., Shiaki, N., <span class="me">Bagai, G.</span>, Aku, M. A., Dappa, T. A., and Esabu, B. O. &ldquo;A Lightweight Machine Learning Framework for Predictive Maintenance and Operational Safety in Operational Offshore Energy Systems.&rdquo;</span><span class="venue">SPE Nigeria Annual International Conference and Exhibition, August 2026. <a class="paper-link" href="https://drive.google.com/file/d/1j3wzBacl96RKIycYfXBhEl4PQgYxBwtn/view?usp=drive_link" target="_blank" rel="noopener">Slides</a></span></p>
-      </div>
-      <div class="record">
-        <span class="tag">[O4]</span>
-        <p class="body"><span class="authors"><span class="me">Bagai, G.</span>, Orvieto, A., and Geiping, J. &ldquo;Does Muon&rsquo;s Advantage Survive Fine-Tuning?&rdquo;</span><span class="venue">Computation and Cognition Summer Internship Annual Symposium. <a class="paper-link" href="https://docs.google.com/presentation/d/18IXTtYc_Pe550Hl3FJR55p2Q5JJ0a9ey/edit?usp=drive_link" target="_blank" rel="noopener">Slides</a></span></p>
-      </div>
-    </div>
-
-    <h2 class="section-title">Posters &amp; slides</h2>
-    <p class="key">Selected posters and presentation decks.</p>
-      <div class="gallery docs" aria-roledescription="carousel" aria-label="Posters and slides">
-      <div class="track">
-        <img src="assets/img/slides/01.jpg" alt="Adaptive Low-Light Enhancement poster, Deep Learning Indaba 2026" loading="lazy">
-        <img data-src="assets/img/slides/02.jpg" alt="Benchmarking Classification Performance poster, IndabaX Nigeria 2026" loading="lazy">
-        <img data-src="assets/img/slides/03.jpg" alt="Bragg Coherent Diffraction Imaging slides" loading="lazy">
-        <img data-src="assets/img/slides/04.jpg" alt="Offshore Guard NAICE presentation slides" loading="lazy">
-        <img data-src="assets/img/slides/05.jpg" alt="Structured Fine-Tuning for LLMs slides" loading="lazy">
-      </div>
-      <button class="prev" type="button" aria-label="Previous">&#10094;</button>
-      <button class="next" type="button" aria-label="Next">&#10095;</button>
-      <span class="count"></span>
+      <p class="next-links">
+        <a class="btn btn-solid" href="publications.html">Publications</a>
+        <a class="btn btn-ghost" href="presentations.html">Presentations</a>
+      </p>
     </div>
   </main>
 
